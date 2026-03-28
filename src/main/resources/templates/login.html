@@ -9,56 +9,31 @@
 <body>
 
 <header>
-    <img th:src="@{/images/header.jpg}" alt="Patient Care" style="width: 100%; height: auto;"/>
+    <img th:src="@{/images/header.jpg}" alt="header"/>
 </header>
 
-<div style="background-color: #032067; color: white; text-align: center; padding: 10px;">
-    <strong>INGRESO</strong>
+<div class="barra-titulo">INGRESO</div>
+
+<div class="login-contenedor">
+    <img th:src="@{/images/login.png}" alt="login"/>
+
+    <p th:if="${param.error}" style="color:red;">Usuario o clave incorrectos.</p>
+    <p th:if="${param.logout}" style="color:green;">Sesión cerrada.</p>
+
+    <form th:action="@{/login}" method="post">
+        <div class="campo">
+            <label>Id</label>
+            <input type="text" name="username" required/>
+        </div>
+        <div class="campo">
+            <label>Clave</label>
+            <input type="password" name="password" required/>
+        </div>
+        <button type="submit">Ingresar</button>
+    </form>
 </div>
 
-<div style="display: flex; justify-content: center; margin-top: 40px;">
-    <div style="border: 1px solid #ccc; padding: 30px; background-color: #f9f9f9;
-                text-align: center; width: 300px; border-radius: 8px;">
-
-        <img th:src="@{/images/login.png}" alt="Login"
-             style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px;"/>
-
-        <div th:if="${param.error}"
-             style="color: red; margin-bottom: 10px; font-size: 13px;">
-            Usuario o contraseña incorrectos.
-        </div>
-
-        <div th:if="${param.logout}"
-             style="color: green; margin-bottom: 10px; font-size: 13px;">
-            Sesión cerrada correctamente.
-        </div>
-
-        <form th:action="@{/login}" method="post">
-            <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
-                <label for="username" style="color: #e67300; font-weight: bold; width: 50px; text-align: right;">Id</label>
-                <input type="text" id="username" name="username"
-                       placeholder="Usuario" required
-                       style="flex: 1; padding: 6px; border: 1px solid #ccc; border-radius: 4px;"/>
-            </div>
-            <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                <label for="password" style="color: #e67300; font-weight: bold; width: 50px; text-align: right;">Clave</label>
-                <input type="password" id="password" name="password"
-                       placeholder="Contraseña" required
-                       style="flex: 1; padding: 6px; border: 1px solid #ccc; border-radius: 4px;"/>
-            </div>
-            <button type="submit"
-                    style="background-color: #032067; color: white; border: none;
-                           padding: 8px 25px; border-radius: 5px; cursor: pointer; font-size: 14px;">
-                Ingresar
-            </button>
-        </form>
-    </div>
-</div>
-
-<footer style="background-color: #032067; color: white; text-align: center;
-               padding: 10px; position: fixed; bottom: 0; width: 100%; font-size: 12px;">
-    Todos los derechos reservados . 2026 . TotalSoft Inc. info@tsinc.com
-</footer>
+<footer>Todos los derechos reservados . 2026 . TotalSoft Inc. info@tsinc.com</footer>
 
 </body>
 </html>
