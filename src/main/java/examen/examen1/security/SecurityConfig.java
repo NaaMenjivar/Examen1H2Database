@@ -19,20 +19,20 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/**", "/css/**", "/js/**", "/images/**", "/index").permitAll()
+                        .requestMatchers("/h2-console/**", "/css/**", "/js/**", "/images/**", "/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/index")
+                        .loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/home", true)
+                        .defaultSuccessUrl("/plan/show", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
-                        .logoutSuccessUrl("/index?logout")
+                        .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 )
                 .csrf(csrf -> csrf.disable())

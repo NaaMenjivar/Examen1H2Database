@@ -1,8 +1,11 @@
 package examen.examen1.service;
 
-import examen.examen1.repository.UsuarioRepository;
 import examen.examen1.model.Usuario;
-import org.springframework.security.core.userdetails.*;
+import examen.examen1.repository.UsuarioRepository;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
