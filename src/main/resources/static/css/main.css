@@ -1,0 +1,281 @@
+/* ===== RESET Y BASE ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #003366;
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+}
+
+header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== BARRA AZUL (título de sección) ===== */
+.barra-azul {
+    background-color: #032067;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* ===== BARRA DE USUARIO LOGUEADO ===== */
+.barra-usuario {
+    background-color: #032067;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+}
+
+.barra-usuario a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.barra-usuario a:hover {
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #032067;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.contenedor-principal {
+    max-width: 700px;
+    margin: 30px auto 80px auto;
+    padding: 0 20px;
+}
+
+/* ===== TÍTULO FARMACIA ===== */
+.titulo-farmacia {
+    color: #e67300;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ===== FILA DE BÚSQUEDA DE PACIENTE ===== */
+.fila-paciente {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.fila-paciente label {
+    color: #e67300;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.fila-paciente input[type="text"] {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 160px;
+}
+
+.fila-paciente button {
+    background-color: #032067;
+    color: white;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.fila-paciente button:hover {
+    background-color: #021244;
+}
+
+.nombre-paciente {
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.paciente-no-encontrado {
+    color: red;
+    font-size: 13px;
+}
+
+/* ===== SECCIÓN DE MEDICAMENTO ===== */
+.seccion-medicamento {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.fila-medicamento {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.fila-medicamento label {
+    color: #e67300;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.fila-medicamento select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 220px;
+}
+
+.fila-medicamento input[type="number"] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 70px;
+    text-align: center;
+}
+
+/* ===== BOTONES REGISTRAR / ENTREGAR ===== */
+.botones-accion {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.btn-registrar {
+    background-color: #032067;
+    color: white;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-registrar:hover {
+    background-color: #021244;
+}
+
+.btn-entregar {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-entregar:hover {
+    background-color: #5a0000;
+}
+
+/* ===== MENSAJE DE ERROR ===== */
+.mensaje-error {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ===== LOGIN ===== */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.login-box {
+    border: 1px solid #ccc;
+    padding: 30px;
+    background-color: #f9f9f9;
+    text-align: center;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.login-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.login-box .fila-campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.login-box .fila-campo label {
+    color: #e67300;
+    font-weight: bold;
+    width: 50px;
+    text-align: right;
+}
+
+.login-box .fila-campo input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-box button {
+    background-color: #032067;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-box button:hover {
+    background-color: #021244;
+}
+
+.msg-error {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.msg-ok {
+    color: green;
+    font-size: 13px;
+    margin-bottom: 10px;
+}

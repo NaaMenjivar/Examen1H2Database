@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Plan Paciente</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="icon" th:href="@{/images/favico.ico}" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <img th:src="@{/images/header.jpg}" alt="Patient Care"/>
+</header>
+
+<!-- Barra usuario logueado + logout -->
+<div class="barra-usuario">
+    <span sec:authentication="name"></span>
+    <a th:href="@{/logout}">LOGOUT</a>
+</div>
+
+<!-- Contenedor principal -->
+<div class="contenedor-principal">
+
+    <!-- Título Farmacia -->
+    <h2 class="titulo-farmacia">
+        Farmacia: &nbsp;
+        <span th:text="${farmacia != null ? farmacia.nombre : ''}"></span>
+    </h2>
+
+    <!-- ===== BÚSQUEDA DE PACIENTE ===== -->
+    <form th:action="@{/plan/show}" method="get">
+        <div class="fila-paciente">
+            <label for="cedula">Paciente:</label>
+            <input type="text" id="cedula" name="cedula"
+                   th:value="${cedula}"
+                   placeholder="Cédula"/>
+            <button type="submit">Buscar</button>
+
+            <!-- Nombre del paciente o mensaje de error -->
+            <span th:if="${cedula != null and paciente != null}"
+                  class="nombre-paciente"
+                  th:text="${paciente.nombre}">
+            </span>
+            <span th:if="${cedula != null and paciente == null}"
+                  class="paciente-no-encontrado">
+                Paciente no encontrado
+            </span>
+        </div>
+    </form>
+
+    <!-- ===== SECCIÓN MEDICAMENTO (solo si hay paciente) ===== -->
+    <div class="seccion-medicamento" th:if="${paciente != null and medicamentos != null and !medicamentos.isEmpty()}">
+
+        <!-- Formulario compartido: select de medicamento + cantidad -->
+        <!-- Registrar -->
+        <form th:action="@{/plan/registrar}" method="post">
+            <input type="hidden" name="cedula" th:value="${cedula}"/>
+            <div class="fila-medicamento">
+                <label for="pmIdReg">Medicamento:</label>
+                <select id="pmIdReg" name="pmId">
+                    <option th:each="pm : ${medicamentos}"
+                            th:value="${pm.id}"
+                            th:text="${pm.medicamento.nombre + ' (' + pm.medicamento.plan + ' + 1) [' + pm.dosisafavor + ']'}">
+                    </option>
+                </select>
+                <label for="cantidadReg">Cant. Dosis:</label>
+                <input type="number" id="cantidadReg" name="cantidad" value="1" min="1"/>
+            </div>
+            <div class="botones-accion">
+                <button type="submit" class="btn-registrar">Registrar</button>
+            </div>
+        </form>
+
+        <!-- Entregar -->
+        <form th:action="@{/plan/entregar}" method="post" style="margin-top: 10px;">
+            <input type="hidden" name="cedula" th:value="${cedula}"/>
+            <div class="fila-medicamento">
+                <label for="pmIdEnt">Medicamento:</label>
+                <select id="pmIdEnt" name="pmId">
+                    <option th:each="pm : ${medicamentos}"
+                            th:value="${pm.id}"
+                            th:text="${pm.medicamento.nombre + ' (' + pm.medicamento.plan + ' + 1) [' + pm.dosisafavor + ']'}">
+                    </option>
+                </select>
+                <label for="cantidadEnt">Cant. Dosis:</label>
+                <input type="number" id="cantidadEnt" name="cantidad" value="1" min="1"/>
+            </div>
+            <div class="botones-accion">
+                <button type="submit" class="btn-entregar">Entregar</button>
+            </div>
+        </form>
+
+        <!-- Mensaje de error si no hay dosis suficientes -->
+        <p class="mensaje-error"
+           th:if="${errorMsg != null}"
+           th:text="${errorMsg}">
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    Todos los derechos reservados . 2026 . TotalSoft Inc. info@tsinc.com
+</footer>
+
+</body>
+</html>
