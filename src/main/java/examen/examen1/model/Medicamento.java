@@ -17,7 +17,6 @@ public class Medicamento {
     @Column(name = "nombre", nullable = false, length = 30)
     private String nombre;
 
-    // Plan: cuántas dosis debe acumular el paciente para recibir 1 regalía
     @Column(name = "plan")
     private Integer plan;
 }

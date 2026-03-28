@@ -9,27 +9,22 @@
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <img th:src="@{/images/header.jpg}" alt="Patient Care"/>
 </header>
 
-<!-- Barra usuario logueado + logout -->
 <div class="barra-usuario">
     <span sec:authentication="name"></span>
     <a th:href="@{/logout}">LOGOUT</a>
 </div>
 
-<!-- Contenedor principal -->
 <div class="contenedor-principal">
 
-    <!-- Título Farmacia -->
     <h2 class="titulo-farmacia">
         Farmacia: &nbsp;
         <span th:text="${farmacia != null ? farmacia.nombre : ''}"></span>
     </h2>
 
-    <!-- ===== BÚSQUEDA DE PACIENTE ===== -->
     <form th:action="@{/plan/show}" method="get">
         <div class="fila-paciente">
             <label for="cedula">Paciente:</label>
@@ -38,7 +33,6 @@
                    placeholder="Cédula"/>
             <button type="submit">Buscar</button>
 
-            <!-- Nombre del paciente o mensaje de error -->
             <span th:if="${cedula != null and paciente != null}"
                   class="nombre-paciente"
                   th:text="${paciente.nombre}">
@@ -50,11 +44,8 @@
         </div>
     </form>
 
-    <!-- ===== SECCIÓN MEDICAMENTO (solo si hay paciente) ===== -->
     <div class="seccion-medicamento" th:if="${paciente != null and medicamentos != null and !medicamentos.isEmpty()}">
 
-        <!-- Formulario compartido: select de medicamento + cantidad -->
-        <!-- Registrar -->
         <form th:action="@{/plan/registrar}" method="post">
             <input type="hidden" name="cedula" th:value="${cedula}"/>
             <div class="fila-medicamento">
@@ -73,7 +64,6 @@
             </div>
         </form>
 
-        <!-- Entregar -->
         <form th:action="@{/plan/entregar}" method="post" style="margin-top: 10px;">
             <input type="hidden" name="cedula" th:value="${cedula}"/>
             <div class="fila-medicamento">
@@ -92,7 +82,6 @@
             </div>
         </form>
 
-        <!-- Mensaje de error si no hay dosis suficientes -->
         <p class="mensaje-error"
            th:if="${errorMsg != null}"
            th:text="${errorMsg}">
@@ -102,7 +91,6 @@
 
 </div>
 
-<!-- Footer -->
 <footer>
     Todos los derechos reservados . 2026 . TotalSoft Inc. info@tsinc.com
 </footer>

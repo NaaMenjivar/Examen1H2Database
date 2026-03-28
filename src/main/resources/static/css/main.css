@@ -1,4 +1,3 @@
-/* ===== RESET Y BASE ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +10,6 @@ body {
     color: #003366;
 }
 
-/* ===== HEADER ===== */
 header {
     width: 100%;
 }
@@ -22,7 +20,6 @@ header img {
     display: block;
 }
 
-/* ===== BARRA AZUL (título de sección) ===== */
 .barra-azul {
     background-color: #032067;
     color: white;
@@ -33,7 +30,6 @@ header img {
     letter-spacing: 1px;
 }
 
-/* ===== BARRA DE USUARIO LOGUEADO ===== */
 .barra-usuario {
     background-color: #032067;
     color: white;
@@ -53,7 +49,6 @@ header img {
     text-decoration: underline;
 }
 
-/* ===== FOOTER ===== */
 footer {
     background-color: #032067;
     color: white;
@@ -65,14 +60,12 @@ footer {
     font-size: 12px;
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
 .contenedor-principal {
     max-width: 700px;
     margin: 30px auto 80px auto;
     padding: 0 20px;
 }
 
-/* ===== TÍTULO FARMACIA ===== */
 .titulo-farmacia {
     color: #e67300;
     font-size: 26px;
@@ -81,7 +74,6 @@ footer {
     margin-bottom: 25px;
 }
 
-/* ===== FILA DE BÚSQUEDA DE PACIENTE ===== */
 .fila-paciente {
     display: flex;
     align-items: center;
@@ -128,7 +120,6 @@ footer {
     font-size: 13px;
 }
 
-/* ===== SECCIÓN DE MEDICAMENTO ===== */
 .seccion-medicamento {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -166,7 +157,6 @@ footer {
     text-align: center;
 }
 
-/* ===== BOTONES REGISTRAR / ENTREGAR ===== */
 .botones-accion {
     display: flex;
     gap: 10px;
@@ -201,7 +191,6 @@ footer {
     background-color: #5a0000;
 }
 
-/* ===== MENSAJE DE ERROR ===== */
 .mensaje-error {
     color: red;
     font-size: 13px;
@@ -209,7 +198,6 @@ footer {
     font-style: italic;
 }
 
-/* ===== LOGIN ===== */
 .login-wrapper {
     display: flex;
     justify-content: center;

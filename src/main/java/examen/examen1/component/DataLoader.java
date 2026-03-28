@@ -104,7 +104,7 @@ public class DataLoader implements CommandLineRunner {
             pm3.setDosisafavor(1);
             pacienteMedicamentoRepository.save(pm3);
 
-            System.out.println("DataLoader: datos de prueba insertados correctamente.");
+            System.out.println("datos de prueba insertados");
         }
     }
 }
