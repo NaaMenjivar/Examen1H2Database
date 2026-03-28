@@ -28,6 +28,7 @@
         <label>Paciente ID:</label>
         <input type="text" name="cedula" th:value="${cedula}"/>
         <button type="submit">Buscar</button>
+        <span th:if="${cedula == null}" style="color: gray;">No se ha seleccionado un paciente</span>
         <span th:if="${cedula != null && paciente != null}" th:text="${paciente.nombre}"></span>
         <span th:if="${cedula != null && paciente == null}" style="color:red;">Paciente no encontrado</span>
     </form>
